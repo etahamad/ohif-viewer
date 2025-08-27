@@ -1,1 +1,41 @@
-window.config={routerBasename:"/ohif-viewer/",showStudyList:!0,extensions:[],modes:[],showWarningMessageForCrossOrigin:!0,showCPUFallbackMessage:!0,showLoadingIndicator:!0,strictZSpacingForVolumeViewport:!0,defaultDataSourceName:"dicomweb",dataSources:[{namespace:"@ohif/extension-default.dataSourcesModule.dicomweb",sourceName:"dicomweb",configuration:{friendlyName:"Dcm4chee Server",name:"Dcm4chee",wadoUriRoot:"https://pacsdicom.cloudcompuexpediente.com/dcm4chee-arc/aets/DCM4CHEE/wado",qidoRoot:"https://pacsdicom.cloudcompuexpediente.com/dcm4chee-arc/aets/DCM4CHEE/rs",wadoRoot:"https://pacsdicom.cloudcompuexpediente.com/dcm4chee-arc/aets/DCM4CHEE/rs",qidoSupportsIncludeField:!1,imageRendering:"wadors",thumbnailRendering:"wadors",dicomUploadEnabled:!0,omitQuotationForMultipartRequest:!0}}]};
+window.config = {
+  routerBasename: "/",
+  showStudyList: true,
+  extensions: [],
+  modes: [],
+  showWarningMessageForCrossOrigin: true,
+  showCPUFallbackMessage: true,
+  showLoadingIndicator: true,
+  strictZSpacingForVolumeViewport: true,
+  oidc: [
+    {
+      authority: "https://authdicom.cloudcompuexpediente.com/realms/dcm4che",
+      client_id: "ohif-viewer",
+      redirect_uri: "https://viewerdicom.cloudcompuexpediente.com/callback",
+      response_type: "id_token token",
+      scope: "openid email profile",
+      post_logout_redirect_uri: "/",
+      automaticSilentRenew: true,
+      revokeAccessTokenOnSignout: true
+    }
+  ],
+  defaultDataSourceName: "dicomweb",
+  dataSources: [
+    {
+      namespace: "@ohif/extension-default.dataSourcesModule.dicomweb",
+      sourceName: "dicomweb",
+      configuration: {
+        friendlyName: "Dcm4chee Server",
+        name: "Dcm4chee",
+        wadoUriRoot: "https://pacsdicom.cloudcompuexpediente.com/dcm4chee-arc/aets/DCM4CHEE/wado",
+        qidoRoot: "https://pacsdicom.cloudcompuexpediente.com/dcm4chee-arc/aets/DCM4CHEE/rs",
+        wadoRoot: "https://pacsdicom.cloudcompuexpediente.com/dcm4chee-arc/aets/DCM4CHEE/rs",
+        qidoSupportsIncludeField: false,
+        imageRendering: "wadors",
+        thumbnailRendering: "wadors",
+        dicomUploadEnabled: true,
+        omitQuotationForMultipartRequest: true
+      }
+    }
+  ]
+};
